@@ -75,7 +75,34 @@ npm run start
 
 ### Task 3 — Data Fetching
 
-> Coming soon.
+- Fetching all posts from JSONPlaceholder API on `/articles`
+- `loading.tsx` shows loading state while articles are being fetched
+- `/articles/favorite` — 3 independent `<Suspense>` boundaries with `FavoriteArticle` async component
+- `/articles/[id]` — dynamic page fetching post + comments in parallel
+- `generateStaticParams()` for static generation of articles with ID 1-10
+- TypeScript interfaces for API responses in `lib/types.ts`
+
+#### Screenshots
+
+**Articles page loading state:**
+
+![Articles Loading](screenshots/task3-articles-loading.PNG)
+
+**Articles list after loading:**
+
+![Articles List](screenshots/task3-articles-list.PNG)
+
+**Favorite articles list after loading:**
+
+![Favorite Loading](screenshots/task3-favorite.PNG)
+
+**Article detail page with comments:**
+
+![Article Detail](screenshots/task3-article-detail.PNG)
+
+**Console output for fetching data:**
+
+![Console Output](screenshots/task3-console-output.PNG)
 
 ---
 
