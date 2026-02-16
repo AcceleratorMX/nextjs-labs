@@ -1,0 +1,90 @@
+/* =============================================
+   Navigation Menu — CSS Module
+   ============================================= */
+
+.nav {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-neutral-900);
+    border-bottom: 1px solid var(--color-neutral-700);
+}
+
+.navList {
+    display: flex;
+    gap: var(--spacing-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navLink {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-neutral-300);
+    transition: background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.navLink:hover {
+    background-color: var(--color-neutral-800);
+    color: var(--color-neutral-50);
+}
+
+.navLinkActive {
+    background-color: var(--color-primary-600);
+    color: #ffffff;
+}
+
+.navLinkActive:hover {
+    background-color: var(--color-primary-500);
+    color: #ffffff;
+}
+
+/* Sub-navigation (articles) */
+.subNav {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-lg);
+    background-color: var(--color-neutral-800);
+    border-bottom: 1px solid var(--color-neutral-700);
+}
+
+.subNavList {
+    display: flex;
+    gap: var(--spacing-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.subNavLink {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-neutral-400);
+    transition: background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.subNavLink:hover {
+    background-color: var(--color-neutral-700);
+    color: var(--color-neutral-100);
+}
+
+.subNavLinkActive {
+    background-color: var(--color-secondary-600);
+    color: #ffffff;
+}
+
+.subNavLinkActive:hover {
+    background-color: var(--color-secondary-500);
+    color: #ffffff;
+}

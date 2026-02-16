@@ -1,0 +1,28 @@
+/* =============================================
+   Layout — Containers, Page Structure
+   ============================================= */
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.content-area {
+    flex: 1;
+    padding: var(--spacing-xl);
+}
+
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.app-layout--vertical {
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 240px;
+    flex-shrink: 0;
+}

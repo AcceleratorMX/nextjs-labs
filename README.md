@@ -43,6 +43,10 @@ npm run start
 
 #### Screenshots
 
+**Checking Node.js and npm versions:**
+
+![Node.js Version](screenshots/task1-node-npm-ver.PNG)
+
 **Project structure after setup:**
 
 ![Project Structure](screenshots/task1-project-structure.PNG)
@@ -108,7 +112,30 @@ npm run start
 
 ### Task 4 — Styling
 
-> Coming soon.
+- Global CSS files: `variables.css` (design tokens), `typography.css`, `layout.css`
+- CSS Module for navigation menu (`NavMenu.module.css`)
+- Custom Tailwind CSS v4 theme: breakpoints (xs–2xl), color palettes (primary, secondary, accent, neutral)
+- Shimmer skeleton loading components (`ui/skeletons.tsx`) with Tailwind classes
+- Ant Design integration with `AntdRegistry` for SSR
+- Ant Design components: Form, Input, Button, Card, Switch, Divider
+
+#### Screenshots
+
+**Styled navigation with active state:**
+
+![Navigation Styled](screenshots/task4-nav-styled.png)
+
+**Skeleton loading with shimmer animation:**
+
+![Skeletons](screenshots/task4-skeletons.png)
+
+**Create Article page with Ant Design form:**
+
+![Create Article](screenshots/task4-create-antd.png)
+
+**Profile Settings with Ant Design components:**
+
+![Settings](screenshots/task4-settings-antd.png)
 
 ---
 
