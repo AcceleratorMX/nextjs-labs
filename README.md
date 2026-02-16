@@ -33,7 +33,7 @@ npm run start
 ---
 
 <details>
-<summary><h2>Lab 1</h2></summary>
+<summary><b>📘 Lab 1 — Project Setup, Pages, Data Fetching, Styling & Design</b></summary>
 
 ### Task 1 — Project Setup
 
@@ -141,6 +141,45 @@ npm run start
 
 ### Task 5 — Design
 
-> Coming soon.
+- Dark mode as default with working light mode toggle (ThemeProvider + localStorage)
+- Hero landing page with animated gradient blobs and CTA buttons
+- Glassmorphism navigation bar with sticky positioning and gradient logo
+- Articles page with responsive card grid (1/2/3 columns) and hover animations
+- Article detail with gradient avatars and styled comments section
+- Favorite articles with accent color badges and fade-in animations
+- Dark-themed Ant Design forms with gradient buttons
+- Inter font for improved readability
+- Smooth theme transition (0.3s ease)
+
+#### Screenshots
+
+**Hero landing page:**
+
+![Home](screenshots/task5-home.png)
+
+**Articles card grid:**
+
+![Articles Grid](screenshots/task5-articles-grid.png)
+
+**Article detail with comments:**
+
+![Article Detail](screenshots/task5-article-detail.png)
+
+**Favorite articles:**
+
+![Favorite](screenshots/task5-favorite.png)
+
+**Create article form:**
+
+![Create](screenshots/task5-create.png)
+
+**Settings — dark theme:**
+
+![Settings Dark](screenshots/task5-settings-dark.png)
+
+**Settings — light theme:**
+
+![Settings Light](screenshots/task5-settings-light.png)
 
 </details>
+

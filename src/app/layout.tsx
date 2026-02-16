@@ -1,5 +1,6 @@
-import { geistSans, geistMono } from "@/app/ui/fonts";
+import { geistSans, geistMono, inter } from "@/app/ui/fonts";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ThemeProvider } from "@/app/ui/ThemeProvider";
 import "./globals.css";
 
 export default function RootLayout({
@@ -8,11 +9,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <AntdRegistry>{children}</AntdRegistry>
+        <AntdRegistry>
+          <ThemeProvider>{children}</ThemeProvider>
+        </AntdRegistry>
       </body>
     </html>
   );

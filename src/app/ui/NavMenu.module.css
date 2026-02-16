@@ -5,14 +5,29 @@
 .nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: var(--spacing-sm) var(--spacing-lg);
-    background-color: var(--color-neutral-900);
-    border-bottom: 1px solid var(--color-neutral-700);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+}
+
+.logo {
+    font-size: 1.125rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-primary-400), var(--color-secondary-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-right: var(--spacing-xl);
 }
 
 .navList {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xs);
     list-style: none;
     padding: 0;
     margin: 0;
@@ -22,27 +37,28 @@
     display: inline-flex;
     align-items: center;
     padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-neutral-300);
-    transition: background-color var(--transition-fast),
-        color var(--transition-fast);
+    color: var(--color-neutral-400);
+    transition: background-color 200ms ease, color 200ms ease, transform 150ms ease;
 }
 
 .navLink:hover {
-    background-color: var(--color-neutral-800);
-    color: var(--color-neutral-50);
+    background-color: rgba(99, 102, 241, 0.08);
+    color: var(--color-neutral-100);
+    transform: translateY(-1px);
 }
 
 .navLinkActive {
-    background-color: var(--color-primary-600);
-    color: #ffffff;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(20, 184, 166, 0.1));
+    color: var(--color-primary-300);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.08);
 }
 
 .navLinkActive:hover {
-    background-color: var(--color-primary-500);
-    color: #ffffff;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(20, 184, 166, 0.15));
+    color: var(--color-primary-200);
 }
 
 /* Sub-navigation (articles) */
@@ -50,8 +66,9 @@
     display: flex;
     align-items: center;
     padding: var(--spacing-xs) var(--spacing-lg);
-    background-color: var(--color-neutral-800);
-    border-bottom: 1px solid var(--color-neutral-700);
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.06);
 }
 
 .subNavList {
@@ -65,26 +82,73 @@
 .subNavLink {
     display: inline-flex;
     align-items: center;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-md);
     font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--color-neutral-400);
-    transition: background-color var(--transition-fast),
-        color var(--transition-fast);
+    color: var(--color-neutral-500);
+    transition: background-color 200ms ease, color 200ms ease;
 }
 
 .subNavLink:hover {
-    background-color: var(--color-neutral-700);
-    color: var(--color-neutral-100);
+    background-color: rgba(20, 184, 166, 0.08);
+    color: var(--color-neutral-200);
 }
 
 .subNavLinkActive {
-    background-color: var(--color-secondary-600);
-    color: #ffffff;
+    background: rgba(20, 184, 166, 0.12);
+    color: var(--color-secondary-400);
 }
 
 .subNavLinkActive:hover {
-    background-color: var(--color-secondary-500);
-    color: #ffffff;
+    background: rgba(20, 184, 166, 0.18);
+    color: var(--color-secondary-300);
+}
+
+/* =============================================
+   Light Mode Overrides
+   ============================================= */
+:global([data-theme="light"]) .nav {
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+:global([data-theme="light"]) .logo {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+:global([data-theme="light"]) .navLink {
+    color: var(--color-neutral-500);
+}
+
+:global([data-theme="light"]) .navLink:hover {
+    background-color: rgba(99, 102, 241, 0.06);
+    color: var(--color-neutral-800);
+}
+
+:global([data-theme="light"]) .navLinkActive {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.08));
+    color: var(--color-primary-700);
+}
+
+:global([data-theme="light"]) .subNav {
+    background: rgba(241, 245, 249, 0.9);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+:global([data-theme="light"]) .subNavLink {
+    color: var(--color-neutral-500);
+}
+
+:global([data-theme="light"]) .subNavLink:hover {
+    background-color: rgba(20, 184, 166, 0.06);
+    color: var(--color-neutral-700);
+}
+
+:global([data-theme="light"]) .subNavLinkActive {
+    background: rgba(20, 184, 166, 0.1);
+    color: var(--color-secondary-700);
 }

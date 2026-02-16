@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Post, Comment } from "@/app/lib/types";
 
 interface ArticlePageProps {
@@ -27,25 +28,61 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     const [post, comments] = await Promise.all([getPost(id), getComments(id)]);
 
     return (
-        <main>
-            <article>
-                <h1>{post.title}</h1>
-                <p>By User #{post.userId}</p>
-                <p>{post.body}</p>
+        <div className="p-6 md:p-8 max-w-3xl mx-auto animate-fade-in">
+            {/* Back link */}
+            <Link
+                href="/articles"
+                className="inline-flex items-center text-sm text-neutral-500 hover:text-neutral-300 mb-6 transition-colors"
+            >
+                ← Back to Articles
+            </Link>
+
+            {/* Article */}
+            <article className="glass rounded-2xl p-6 md:p-8 mb-8">
+                <div className="flex items-center gap-3 mb-4">
+                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary-500/10 text-primary-400">
+                        Article #{post.id}
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-xs font-bold text-white">
+                        {post.userId}
+                    </div>
+                    <span className="text-sm text-neutral-500">User #{post.userId}</span>
+                </div>
+                <h1 className="text-2xl md:text-3xl font-bold text-neutral-100 mb-4 leading-tight">
+                    {post.title}
+                </h1>
+                <p className="text-neutral-400 leading-relaxed">{post.body}</p>
             </article>
 
+            {/* Comments */}
             <section>
-                <h2>Comments ({comments.length})</h2>
-                <ul>
+                <h2 className="text-xl font-bold text-neutral-200 mb-4">
+                    Comments
+                    <span className="ml-2 text-sm font-normal text-neutral-500">
+                        ({comments.length})
+                    </span>
+                </h2>
+                <div className="flex flex-col gap-3">
                     {comments.map((comment) => (
-                        <li key={comment.id}>
-                            <h4>{comment.name}</h4>
-                            <small>{comment.email}</small>
-                            <p>{comment.body}</p>
-                        </li>
+                        <div key={comment.id} className="glass rounded-xl p-4">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-secondary-600 to-accent-500 flex items-center justify-center text-xs font-bold text-white uppercase">
+                                    {comment.name.charAt(0)}
+                                </div>
+                                <div>
+                                    <p className="text-sm font-medium text-neutral-300">
+                                        {comment.name}
+                                    </p>
+                                    <p className="text-xs text-neutral-600">{comment.email}</p>
+                                </div>
+                            </div>
+                            <p className="text-sm text-neutral-400 leading-relaxed pl-11">
+                                {comment.body}
+                            </p>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </section>
-        </main>
+        </div>
     );
 }

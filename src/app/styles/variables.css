@@ -35,4 +35,13 @@
   --z-sticky: 200;
   --z-overlay: 300;
   --z-modal: 400;
+
+  /* Theme Colors */
+  --foreground: #f1f5f9;
+  --background: #020617;
+}
+
+[data-theme="light"]:root {
+  --foreground: #0f172a;
+  --background: #f8fafc;
 }
