@@ -1,10 +1,11 @@
 import Link from "next/link";
+import api from "@/app/lib/api";
 import { Post } from "@/app/lib/types";
 
 async function getPosts(): Promise<Post[]> {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    return res.json();
+    const { data } = await api.get<Post[]>("/posts");
+    return data;
 }
 
 export default async function ArticlesPage() {

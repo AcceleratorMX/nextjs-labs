@@ -1,4 +1,5 @@
 import Link from "next/link";
+import api from "@/app/lib/api";
 import { Post, Comment } from "@/app/lib/types";
 
 interface ArticlePageProps {
@@ -6,15 +7,13 @@ interface ArticlePageProps {
 }
 
 async function getPost(id: string): Promise<Post> {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    return res.json();
+    const { data } = await api.get<Post>(`/posts/${id}`);
+    return data;
 }
 
 async function getComments(id: string): Promise<Comment[]> {
-    const res = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${id}/comments`
-    );
-    return res.json();
+    const { data } = await api.get<Comment[]>(`/posts/${id}/comments`);
+    return data;
 }
 
 export async function generateStaticParams() {

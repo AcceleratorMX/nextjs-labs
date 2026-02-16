@@ -1,3 +1,4 @@
+import api from "@/app/lib/api";
 import { Post } from "@/app/lib/types";
 
 interface FavoriteArticleProps {
@@ -9,8 +10,7 @@ export default async function FavoriteArticle({ id }: FavoriteArticleProps) {
         setTimeout(resolve, 1000 + Math.random() * 2000)
     );
 
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    const post: Post = await res.json();
+    const { data: post } = await api.get<Post>(`/posts/${id}`);
 
     return (
         <article className="glass rounded-xl p-6 card-hover animate-fade-in">
