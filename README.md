@@ -183,3 +183,21 @@ npm run start
 
 </details>
 
+---
+
+<details open>
+<summary><b>📗 Lab 2 — Environment Variables, Databases, API & Client Fetching</b></summary>
+
+### Task 1 — Environment Variables
+
+- Created `.env.local` file to securely store environment configuration.
+- Added public (`NEXT_PUBLIC_APP_VERSION`) and server-side (`SECRET_API_KEY`, `DB_CONNECTION_STATUS`) variables.
+- Displayed `NEXT_PUBLIC_APP_VERSION` on the UI within the Settings page.
+
+#### Screenshots
+
+**UI Display (Settings Page):**
+
+![UI Display](screenshots/lab2_env_ui.png)
+
+</details>
