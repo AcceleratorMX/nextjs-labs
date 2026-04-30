@@ -190,7 +190,7 @@ npm run start
 
 ### Task 1 — Environment Variables
 
-- Created `.env.local` file to securely store environment configuration.
+- Created `.env` file to securely store environment configuration.
 - Added public (`NEXT_PUBLIC_APP_VERSION`) and server-side (`SECRET_API_KEY`, `DB_CONNECTION_STATUS`) variables.
 - Displayed `NEXT_PUBLIC_APP_VERSION` on the UI within the Settings page.
 
@@ -199,5 +199,20 @@ npm run start
 **UI Display (Settings Page):**
 
 ![UI Display](screenshots/lab2_env_ui.png)
+
+
+### Task 2 — Production Database (Vercel Postgres / Neon)
+
+- Created a Postgres database on Neon.
+- Configured `.env` with connection variables (`DATABASE_URL` and `DATABASE_URL_UNPOOLED`).
+- Initialized Prisma ORM and created schema for `Article` and `Comment` models.
+- Executed `npx prisma db push` to synchronize the schema.
+- Created and executed `seed.ts` script to populate the database with initial mock data.
+
+#### Screenshots
+
+**Database Synchronization and Seeding Logs:**
+
+![Database Seeding](screenshots/lab2_proddb_logs.png)
 
 </details>
