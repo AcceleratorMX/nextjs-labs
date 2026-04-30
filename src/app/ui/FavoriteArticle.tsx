@@ -1,16 +1,33 @@
+"use client";
+
+import useSWR from "swr";
 import api from "@/app/lib/api";
 import { Post } from "@/app/lib/types";
 
+const fetcher = (url: string) => api.get<Post>(url).then((res) => res.data);
+
 interface FavoriteArticleProps {
-    id: number;
+    id: number | string;
 }
 
-export default async function FavoriteArticle({ id }: FavoriteArticleProps) {
-    await new Promise((resolve) =>
-        setTimeout(resolve, 1000 + Math.random() * 2000)
-    );
+export default function FavoriteArticle({ id }: FavoriteArticleProps) {
+    const { data: post, error, isLoading } = useSWR(`/articles/${id}`, fetcher);
 
-    const { data: post } = await api.get<Post>(`/posts/${id}`);
+    if (isLoading) {
+        return (
+            <article className="glass rounded-xl p-6 h-40 flex items-center justify-center animate-pulse border border-neutral-800">
+                <span className="text-neutral-500 text-sm">Loading favorite...</span>
+            </article>
+        );
+    }
+
+    if (error || !post) {
+        return (
+            <article className="glass rounded-xl p-6 h-40 flex items-center justify-center border border-red-900/30">
+                <span className="text-red-500 text-sm">Failed to load favorite.</span>
+            </article>
+        );
+    }
 
     return (
         <article className="glass rounded-xl p-6 card-hover animate-fade-in">
@@ -20,13 +37,13 @@ export default async function FavoriteArticle({ id }: FavoriteArticleProps) {
                     Favorite #{post.id}
                 </span>
             </div>
-            <h3 className="text-lg font-semibold text-neutral-200 mb-2">
+            <h3 className="text-lg font-semibold text-neutral-200 mb-2 truncate">
                 {post.title}
             </h3>
-            <p className="text-sm text-neutral-400 leading-relaxed">{post.body}</p>
+            <p className="text-sm text-neutral-400 leading-relaxed line-clamp-2">{post.body}</p>
             <div className="mt-4 pt-3 border-t border-neutral-800">
                 <small className="text-neutral-600">
-                    Post #{post.id} · User #{post.userId}
+                    User #{post.userId}
                 </small>
             </div>
         </article>

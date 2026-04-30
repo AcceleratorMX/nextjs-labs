@@ -1,23 +1,46 @@
+"use client";
+
 import Link from "next/link";
+import useSWR from "swr";
 import api from "@/app/lib/api";
 import { Post } from "@/app/lib/types";
 
-async function getPosts(): Promise<Post[]> {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    const { data } = await api.get<Post[]>("/posts");
-    return data;
-}
+const fetcher = (url: string) => api.get<Post[]>(url).then((res) => res.data);
 
-export default async function ArticlesPage() {
-    const posts = await getPosts();
+export default function ArticlesPage() {
+    const { data: posts, error, isLoading } = useSWR("/articles", fetcher);
+
+    if (isLoading) {
+        return (
+            <div className="p-6 md:p-8 max-w-6xl mx-auto flex justify-center items-center h-64">
+                <div className="text-xl text-neutral-400 animate-pulse">Loading articles...</div>
+            </div>
+        );
+    }
+
+    if (error || !posts) {
+        return (
+            <div className="p-6 md:p-8 max-w-6xl mx-auto">
+                <div className="bg-red-500/10 text-red-500 p-4 rounded-xl">
+                    Failed to load articles.
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="p-6 md:p-8 max-w-6xl mx-auto animate-fade-in">
-            <div className="mb-8">
-                <h1 className="text-3xl font-bold mb-2 gradient-text">Articles</h1>
-                <p className="text-neutral-500">
-                    Explore {posts.length} articles from the community
-                </p>
+            <div className="mb-8 flex justify-between items-center">
+                <div>
+                    <h1 className="text-3xl font-bold mb-2 gradient-text">Articles</h1>
+                    <p className="text-neutral-500">
+                        Explore {posts.length} articles from the community
+                    </p>
+                </div>
+                {/* Create button */}
+                <Link href="/create" className="px-4 py-2 bg-primary-600 hover:bg-primary-500 text-white rounded-lg font-medium transition-colors">
+                    + New Article
+                </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

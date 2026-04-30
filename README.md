@@ -215,4 +215,51 @@ npm run start
 
 ![Database Seeding](screenshots/lab2_proddb_logs.png)
 
+### Task 3 — Development Database (Docker)
+
+- Created a `docker-compose.yml` to spin up a local PostgreSQL container for development.
+- Switched the `.env` connection strings to point to the local Docker database (`postgres://postgres:postgrespassword@localhost:5432/nextjs_labs_dev`).
+- Re-ran `npx prisma db push` and `npx prisma db seed` to initialize the local dev database.
+
+#### Screenshots
+
+**Docker Container Running:**
+
+![Docker Dev DB](screenshots/lab2_docker_db.png)
+
+### Task 4 — API Routes (Route Handlers)
+
+- Created Next.js Route Handlers inside `src/app/api/articles` to provide a RESTful API.
+- Implemented full CRUD functionality using Prisma:
+  - `GET /api/articles` — Fetch all articles.
+  - `POST /api/articles` — Create a new article.
+  - `GET /api/articles/[id]` — Fetch a specific article by ID.
+  - `PATCH /api/articles/[id]` — Update an existing article.
+  - `DELETE /api/articles/[id]` — Delete an article.
+- Created `src/lib/prisma.ts` to instantiate a global Prisma client to prevent connection exhaustion during development hot-reloads.
+
+#### Screenshots
+
+**API Testing via Postman (Insomnia):**
+
+![Postman API Test](screenshots/lab2_api_postman.png)
+
+### Task 5 — Client Pages with SWR
+
+- Refactored `api.ts` to fetch from local `/api` routes instead of JSONPlaceholder.
+- Converted `ArticlesPage` to a Client Component using `useSWR` for fetching the list of articles.
+- Converted `ArticlePage` to a Client Component using `useSWR` to fetch an individual article and its comments.
+- Updated `FavoriteArticle` UI component to fetch data dynamically via SWR.
+- Handled `isLoading` and `error` states gracefully with skeleton loaders and error messages.
+
+#### Screenshots
+
+**Articles List (SWR):**
+
+![Articles List](screenshots/lab2_swr_list.png)
+
+**Article Detail (SWR):**
+
+![Article Detail](screenshots/lab2_swr_detail.png)
+
 </details>
