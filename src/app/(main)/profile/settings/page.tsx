@@ -56,6 +56,21 @@ export default function ProfileSettingsPage() {
                         />
                     </div>
                 </div>
+
+                <div className="glass rounded-2xl p-6">
+                    <h3 className="text-lg font-semibold mb-4">System Information</h3>
+                    <div className="flex justify-between items-center">
+                        <div>
+                            <p className="text-sm">App Version</p>
+                            <p className="text-xs text-neutral-500">
+                                Current version of the application
+                            </p>
+                        </div>
+                        <div className="text-sm font-mono bg-neutral-800/50 px-3 py-1 rounded-md">
+                            {process.env.NEXT_PUBLIC_APP_VERSION || "N/A"}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
