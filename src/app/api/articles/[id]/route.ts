@@ -4,18 +4,24 @@ import prisma from "@/lib/prisma";
 // GET /api/articles/[id]
 export async function GET(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
+        const { id } = await params;
         const article = await prisma.article.findUnique({
-            where: { id: params.id },
+            where: { id },
         });
 
         if (!article) {
             return NextResponse.json({ error: "Article not found" }, { status: 404 });
         }
 
-        return NextResponse.json(article);
+        const comments = await prisma.comment.findMany({
+            where: { articleId: id },
+            orderBy: { createdAt: "asc" }
+        });
+
+        return NextResponse.json({ ...article, comments });
     } catch (error) {
         return NextResponse.json(
             { error: "Failed to fetch article" },
@@ -27,14 +33,15 @@ export async function GET(
 // PATCH /api/articles/[id]
 export async function PATCH(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
+        const { id } = await params;
         const body = await request.json();
         const { title, body: content } = body;
 
         const updatedArticle = await prisma.article.update({
-            where: { id: params.id },
+            where: { id },
             data: {
                 ...(title && { title }),
                 ...(content && { body: content }),
@@ -53,11 +60,12 @@ export async function PATCH(
 // DELETE /api/articles/[id]
 export async function DELETE(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
+        const { id } = await params;
         await prisma.article.delete({
-            where: { id: params.id },
+            where: { id },
         });
 
         // 204 No Content

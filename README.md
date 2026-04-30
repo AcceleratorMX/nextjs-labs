@@ -244,4 +244,22 @@ npm run start
 
 ![Postman API Test](screenshots/lab2_api_postman.png)
 
+### Task 5 — Client Pages with SWR
+
+- Refactored `api.ts` to fetch from local `/api` routes instead of JSONPlaceholder.
+- Converted `ArticlesPage` to a Client Component using `useSWR` for fetching the list of articles.
+- Converted `ArticlePage` to a Client Component using `useSWR` to fetch an individual article and its comments.
+- Updated `FavoriteArticle` UI component to fetch data dynamically via SWR.
+- Handled `isLoading` and `error` states gracefully with skeleton loaders and error messages.
+
+#### Screenshots
+
+**Articles List (SWR):**
+
+![Articles List](screenshots/lab2_swr_list.png)
+
+**Article Detail (SWR):**
+
+![Article Detail](screenshots/lab2_swr_detail.png)
+
 </details>
