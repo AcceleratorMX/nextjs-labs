@@ -215,4 +215,16 @@ npm run start
 
 ![Database Seeding](screenshots/lab2_proddb_logs.png)
 
+### Task 3 — Development Database (Docker)
+
+- Created a `docker-compose.yml` to spin up a local PostgreSQL container for development.
+- Switched the `.env` connection strings to point to the local Docker database (`postgres://postgres:postgrespassword@localhost:5432/nextjs_labs_dev`).
+- Re-ran `npx prisma db push` and `npx prisma db seed` to initialize the local dev database.
+
+#### Screenshots
+
+**Docker Container Running:**
+
+![Docker Dev DB](screenshots/lab2_docker_db.png)
+
 </details>
