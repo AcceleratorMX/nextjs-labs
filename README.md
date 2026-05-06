@@ -308,4 +308,23 @@ npm run start
 
 ---
 
+### Task 3 — Google OAuth Authentication
+
+- Configured Google OAuth 2.0 in Google Cloud Console.
+- Added Google provider to NextAuth configuration.
+- "Sign in with Google" button on login page.
+- Auto-creation of user record in DB on first Google sign-in (upsert by email).
+
+#### Screenshots
+
+**Google sign-in flow:**
+
+![Google Auth](screenshots/lab3-task3-google-login-form.png)
+
+![Google Auth](screenshots/lab3-task3-google-login-auth.png)
+
+![Google Auth](screenshots/lab3-task3-google-login-success.png)
+
+---
+
 </details>
