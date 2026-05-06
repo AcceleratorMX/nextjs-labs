@@ -24,6 +24,7 @@ jobs:
           --health-retries 5
     env:
       DATABASE_URL: postgresql://postgres:password@localhost:5432/testdb
+      DATABASE_URL_UNPOOLED: postgresql://postgres:password@localhost:5432/testdb
       AUTH_SECRET: supersecret12345678901234567890
       AUTH_URL: http://localhost:3000
     steps:
