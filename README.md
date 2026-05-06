@@ -327,4 +327,23 @@ npm run start
 
 ---
 
+### Task 4 — GitHub OAuth Authentication
+
+- Created GitHub OAuth App in Developer settings.
+- Added GitHub provider to NextAuth configuration.
+- "Sign in with GitHub" button on login page.
+- Auto-creation of user record in DB on first GitHub sign-in (upsert by email).
+
+#### Screenshots
+
+**GitHub sign-in flow:**
+
+![GitHub Auth](screenshots/lab3-task4-github-login-form.png)
+
+![GitHub Auth](screenshots/lab3-task4-github-login-auth.png)
+
+![GitHub Auth](screenshots/lab3-task4-github-login-success.png)
+
+---
+
 </details>
