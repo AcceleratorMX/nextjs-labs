@@ -23,6 +23,30 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### Database (Development)
+
+To run the local PostgreSQL database using Docker:
+
+```bash
+docker-compose up -d
+```
+
+### Testing
+
+Run unit tests with Jest:
+
+```bash
+npm run test
+npm run test:coverage   # To check code coverage
+```
+
+Run End-to-End tests with Playwright:
+
+```bash
+npx playwright test
+npx playwright show-report   # To view the HTML report
+```
+
 ### Production Build
 
 ```bash
@@ -429,5 +453,24 @@ npm run start
 **Playwright E2E Test Report:**
 
 ![Playwright Test Report](screenshots/lab4-task3-playwright-report.png)
+
+---
+
+### Task 4 — GitHub Actions Workflow (CI)
+
+- Created `.github/workflows/ci.yml` based on the Playwright template.
+- Configured the workflow to run automatically on `push` and `pull_request` to `main`, `master`, and `lab-4` branches.
+- Added steps to:
+  - Install dependencies (`npm ci`).
+  - Run the Jest unit test suite (`npm run test`).
+  - Install Playwright browsers.
+  - Run the Playwright E2E test suite (`npx playwright test`).
+- The pipeline ensures both unit and E2E tests are executed for Continuous Integration.
+
+#### Screenshots
+
+**Successful CI Pipeline Execution:**
+
+![CI Pipeline](screenshots/lab4-task4-ci.png)
 
 </details>
