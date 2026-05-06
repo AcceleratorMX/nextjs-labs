@@ -265,7 +265,7 @@ npm run start
 
 ---
 
-<details open>
+<details>
 <summary><b>📙 Lab 3 — OpenID Connect (Authentication)</b></summary>
 
 ### Task 1 — Users Table
@@ -362,5 +362,26 @@ npm run start
 **Password change page:**
 
 ![Security](screenshots/lab3-task5-security.png)
+
+</details>
+
+---
+
+<details open>
+<summary><b>🧪 Lab 4 — Testing and CI</b></summary>
+
+### Task 1 — Jest Testing Framework Setup
+
+- Installed Jest, `jest-environment-jsdom`, and `@testing-library` packages.
+- Created `jest.config.ts` configured for Next.js App Router using `next/jest`.
+- Created `jest.setup.ts` to include custom jest-dom matchers.
+- Added a basic unit test for the home page (`__tests__/page.test.tsx`).
+- Configured npm `test` script in `package.json`.
+
+#### Screenshots
+
+**Successful basic Jest test run:**
+
+![Jest Setup](screenshots/lab4-task1-jest.png)
 
 </details>
