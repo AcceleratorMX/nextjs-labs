@@ -384,4 +384,28 @@ npm run start
 
 ![Jest Setup](screenshots/lab4-task1-jest.png)
 
+---
+
+### Task 2 — Code Coverage
+
+- Configured `jest.config.ts` with `coverageThreshold` requiring a minimum of **40%** coverage for statements, branches, functions, and lines.
+- Configured `collectCoverageFrom` to focus on source files (`src/`) while excluding irrelevant files (like types or root layouts).
+- Added the `test:coverage` script to `package.json` to generate coverage reports.
+- Created unit tests for the following components to meet the coverage threshold:
+  - `AuthProvider`
+  - `ThemeProvider`
+  - `NavLink`
+  - `UserNav`
+  - `skeletons`
+  - `ArticlesPage` (Main Feed)
+  - Layout Pages (`LoginPage`, `RegisterPage`, `CreateArticlePage`, `FavoriteArticlesPage`)
+- Handled mock implementations for `next/navigation`, `next-auth/react`, `swr`, and `antd`.
+- Verified that the testing suite met the required 40% criteria globally.
+
+#### Screenshots
+
+**Test Coverage Results:**
+
+![Code Coverage](screenshots/lab4-task2-coverage.png)
+
 </details>
