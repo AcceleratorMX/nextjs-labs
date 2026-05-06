@@ -367,7 +367,7 @@ npm run start
 
 ---
 
-<details open>
+<details>
 <summary><b>🧪 Lab 4 — Testing and CI</b></summary>
 
 ### Task 1 — Jest Testing Framework Setup
@@ -407,5 +407,27 @@ npm run start
 **Test Coverage Results:**
 
 ![Code Coverage](screenshots/lab4-task2-coverage.png)
+
+---
+
+### Task 3 — End-to-End (E2E) Testing
+
+- Initialized Playwright testing framework (`npm init playwright@latest`).
+- Configured Playwright to use `baseURL: 'http://localhost:3000'` and automatically start the Next.js development server during tests.
+- Implemented 3 key End-to-End tests in `e2e/app.spec.ts`:
+  1. Validates the Home page loads correctly and displays the primary heading.
+  2. Verifies the "Browse Articles" navigation flow.
+  3. Verifies the "Sign Up" navigation flow from the Login page.
+- Executed the E2E tests successfully across chromium, firefox, and webkit browsers.
+
+#### Screenshots
+
+**Successful Playwright E2E Test Run:**
+
+![Playwright Tests](screenshots/lab4-task3-playwright.png)
+
+**Playwright E2E Test Report:**
+
+![Playwright Test Report](screenshots/lab4-task3-playwright-report.png)
 
 </details>
