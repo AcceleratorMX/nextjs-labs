@@ -346,4 +346,21 @@ npm run start
 
 ---
 
+### Task 5 — User Profile Page
+
+- Profile page (`/profile`) displaying user info: name, email, avatar, provider, registration date.
+- Profile editing form: name, age — saved via `PATCH /api/auth/profile`.
+- Security page (`/profile/security`) for password change (available only for credentials users).
+- Navigation shows logged-in user's name and Logout button.
+
+#### Screenshots
+
+**Profile page:**
+
+![Profile](screenshots/lab3-task5-profile.png)
+
+**Password change page:**
+
+![Security](screenshots/lab3-task5-security.png)
+
 </details>
