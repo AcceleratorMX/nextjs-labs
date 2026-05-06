@@ -23,6 +23,30 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### Database (Development)
+
+To run the local PostgreSQL database using Docker:
+
+```bash
+docker-compose up -d
+```
+
+### Testing
+
+Run unit tests with Jest:
+
+```bash
+npm run test
+npm run test:coverage   # To check code coverage
+```
+
+Run End-to-End tests with Playwright:
+
+```bash
+npx playwright test
+npx playwright show-report   # To view the HTML report
+```
+
 ### Production Build
 
 ```bash
@@ -265,7 +289,7 @@ npm run start
 
 ---
 
-<details open>
+<details>
 <summary><b>📙 Lab 3 — OpenID Connect (Authentication)</b></summary>
 
 ### Task 1 — Users Table
@@ -362,5 +386,91 @@ npm run start
 **Password change page:**
 
 ![Security](screenshots/lab3-task5-security.png)
+
+</details>
+
+---
+
+<details>
+<summary><b>🧪 Lab 4 — Testing and CI</b></summary>
+
+### Task 1 — Jest Testing Framework Setup
+
+- Installed Jest, `jest-environment-jsdom`, and `@testing-library` packages.
+- Created `jest.config.ts` configured for Next.js App Router using `next/jest`.
+- Created `jest.setup.ts` to include custom jest-dom matchers.
+- Added a basic unit test for the home page (`__tests__/page.test.tsx`).
+- Configured npm `test` script in `package.json`.
+
+#### Screenshots
+
+**Successful basic Jest test run:**
+
+![Jest Setup](screenshots/lab4-task1-jest.png)
+
+---
+
+### Task 2 — Code Coverage
+
+- Configured `jest.config.ts` with `coverageThreshold` requiring a minimum of **40%** coverage for statements, branches, functions, and lines.
+- Configured `collectCoverageFrom` to focus on source files (`src/`) while excluding irrelevant files (like types or root layouts).
+- Added the `test:coverage` script to `package.json` to generate coverage reports.
+- Created unit tests for the following components to meet the coverage threshold:
+  - `AuthProvider`
+  - `ThemeProvider`
+  - `NavLink`
+  - `UserNav`
+  - `skeletons`
+  - `ArticlesPage` (Main Feed)
+  - Layout Pages (`LoginPage`, `RegisterPage`, `CreateArticlePage`, `FavoriteArticlesPage`)
+- Handled mock implementations for `next/navigation`, `next-auth/react`, `swr`, and `antd`.
+- Verified that the testing suite met the required 40% criteria globally.
+
+#### Screenshots
+
+**Test Coverage Results:**
+
+![Code Coverage](screenshots/lab4-task2-coverage.png)
+
+---
+
+### Task 3 — End-to-End (E2E) Testing
+
+- Initialized Playwright testing framework (`npm init playwright@latest`).
+- Configured Playwright to use `baseURL: 'http://localhost:3000'` and automatically start the Next.js development server during tests.
+- Implemented 3 key End-to-End tests in `e2e/app.spec.ts`:
+  1. Validates the Home page loads correctly and displays the primary heading.
+  2. Verifies the "Browse Articles" navigation flow.
+  3. Verifies the "Sign Up" navigation flow from the Login page.
+- Executed the E2E tests successfully across chromium, firefox, and webkit browsers.
+
+#### Screenshots
+
+**Successful Playwright E2E Test Run:**
+
+![Playwright Tests](screenshots/lab4-task3-playwright.png)
+
+**Playwright E2E Test Report:**
+
+![Playwright Test Report](screenshots/lab4-task3-playwright-report.png)
+
+---
+
+### Task 4 — GitHub Actions Workflow (CI)
+
+- Created `.github/workflows/ci.yml` based on the Playwright template.
+- Configured the workflow to run automatically on `push` and `pull_request` to `main`, `master`, and `lab-4` branches.
+- Added steps to:
+  - Install dependencies (`npm ci`).
+  - Run the Jest unit test suite (`npm run test`).
+  - Install Playwright browsers.
+  - Run the Playwright E2E test suite (`npx playwright test`).
+- The pipeline ensures both unit and E2E tests are executed for Continuous Integration.
+
+#### Screenshots
+
+**Successful CI Pipeline Execution:**
+
+![CI Pipeline](screenshots/lab4-task4-ci.png)
 
 </details>
