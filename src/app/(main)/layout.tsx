@@ -1,5 +1,6 @@
 import Link from "next/link";
 import NavLink from "@/app/ui/NavLink";
+import UserNav from "@/app/ui/UserNav";
 import styles from "@/app/ui/NavMenu.module.css";
 
 export default function MainLayout({
@@ -26,6 +27,15 @@ export default function MainLayout({
                         </li>
                         <li>
                             <NavLink
+                                href="/profile"
+                                className={styles.navLink}
+                                activeClassName={styles.navLinkActive}
+                            >
+                                Profile
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
                                 href="/profile/settings"
                                 className={styles.navLink}
                                 activeClassName={styles.navLinkActive}
@@ -44,8 +54,10 @@ export default function MainLayout({
                         </li>
                     </ul>
                 </div>
+                <UserNav />
             </nav>
             <main>{children}</main>
         </div>
     );
 }
+

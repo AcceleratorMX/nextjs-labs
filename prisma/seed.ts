@@ -7,7 +7,20 @@ async function main() {
   // Очищення попередніх даних
   await prisma.comment.deleteMany()
   await prisma.article.deleteMany()
+  await prisma.user.deleteMany()
   console.log('Cleared existing data.')
+
+  // Створення тестового користувача
+  // Password: "password123" (bcrypt hash)
+  const testUser = await prisma.user.create({
+    data: {
+      email: 'test@example.com',
+      name: 'Test User',
+      password: '$2b$10$/Wi0ManaiuVQOQfkcj7ZpOP9Fu.nY8eU7oT6yIfS/ZlAzgELMLfUy', // "password123"
+      provider: 'credentials',
+    },
+  })
+  console.log(`Created test user: ${testUser.email} (id: ${testUser.id})`)
 
   // Створення статей
   const article1 = await prisma.article.create({

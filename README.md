@@ -185,7 +185,7 @@ npm run start
 
 ---
 
-<details open>
+<details>
 <summary><b>📗 Lab 2 — Environment Variables, Databases, API & Client Fetching</b></summary>
 
 ### Task 1 — Environment Variables
@@ -199,7 +199,6 @@ npm run start
 **UI Display (Settings Page):**
 
 ![UI Display](screenshots/lab2_env_ui.png)
-
 
 ### Task 2 — Production Database (Vercel Postgres / Neon)
 
@@ -261,5 +260,107 @@ npm run start
 **Article Detail (SWR):**
 
 ![Article Detail](screenshots/lab2_swr_detail.png)
+
+</details>
+
+---
+
+<details open>
+<summary><b>📙 Lab 3 — OpenID Connect (Authentication)</b></summary>
+
+### Task 1 — Users Table
+
+- Added `User` model to Prisma schema with `email` as the unique identifier field.
+- Fields: `id`, `email` (unique), `name`, `password` (optional, for OAuth users), `image`, `age`, `provider`, `createdAt`, `updatedAt`.
+- Executed migration `add_users_table` to create the table in the database.
+- Added a test user (`test@example.com`) to the seed script.
+
+#### Screenshots
+
+**User table in database:**
+
+![Migration](screenshots/lab3-task1-migration.png)
+
+---
+
+### Task 2 — Credentials Authentication (Login/Password)
+
+- Installed and configured NextAuth.js (Auth.js v5) with Credentials provider.
+- Created `auth.ts`, `auth.config.ts` and `middleware.ts` for route protection.
+- Login page (`/login`) with email + password form.
+- Registration page (`/register`) with name, email, password.
+- Password hashing with `bcryptjs`, validation with `Zod`.
+- Navigation updates: Login/Logout button based on session state.
+
+#### Screenshots
+
+**Login page:**
+
+![Login](screenshots/lab3-task2-login.png)
+
+**Registration page:**
+
+![Register](screenshots/lab3-task2-register.png)
+
+**Successful authentication:**
+
+![Auth Success](screenshots/lab3-task2-auth-success.png)
+
+---
+
+### Task 3 — Google OAuth Authentication
+
+- Configured Google OAuth 2.0 in Google Cloud Console.
+- Added Google provider to NextAuth configuration.
+- "Sign in with Google" button on login page.
+- Auto-creation of user record in DB on first Google sign-in (upsert by email).
+
+#### Screenshots
+
+**Google sign-in flow:**
+
+![Google Auth](screenshots/lab3-task3-google-login-form.png)
+
+![Google Auth](screenshots/lab3-task3-google-login-auth.png)
+
+![Google Auth](screenshots/lab3-task3-google-login-success.png)
+
+---
+
+### Task 4 — GitHub OAuth Authentication
+
+- Created GitHub OAuth App in Developer settings.
+- Added GitHub provider to NextAuth configuration.
+- "Sign in with GitHub" button on login page.
+- Auto-creation of user record in DB on first GitHub sign-in (upsert by email).
+
+#### Screenshots
+
+**GitHub sign-in flow:**
+
+![GitHub Auth](screenshots/lab3-task4-github-login-form.png)
+
+![GitHub Auth](screenshots/lab3-task4-github-login-auth.png)
+
+![GitHub Auth](screenshots/lab3-task4-github-login-success.png)
+
+---
+
+### Task 5 — User Profile Page
+
+- Profile page (`/profile`) displaying user info: name, email, avatar, provider, registration date.
+- Profile editing form: name, age — saved via `PATCH /api/auth/profile`.
+- Security page (`/profile/security`) for password change (available only for credentials users).
+- Navigation shows logged-in user's name and Logout button.
+
+#### Screenshots
+
+**Profile page:**
+
+![Profile](screenshots/lab3-task5-profile.png)
+
+**Password change page:**
+
+![Security](screenshots/lab3-task5-security.png)
 
 </details>
