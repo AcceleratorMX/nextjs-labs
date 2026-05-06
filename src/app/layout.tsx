@@ -1,6 +1,7 @@
 import { geistSans, geistMono, inter } from "@/app/ui/fonts";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ThemeProvider } from "@/app/ui/ThemeProvider";
+import AuthProvider from "@/app/ui/AuthProvider";
 import "./globals.css";
 
 export default function RootLayout({
@@ -14,9 +15,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
         <AntdRegistry>
-          <ThemeProvider>{children}</ThemeProvider>
+          <AuthProvider>
+            <ThemeProvider>{children}</ThemeProvider>
+          </AuthProvider>
         </AntdRegistry>
       </body>
     </html>
   );
 }
+

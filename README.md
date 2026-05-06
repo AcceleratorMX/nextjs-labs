@@ -283,4 +283,29 @@ npm run start
 
 ---
 
+### Task 2 — Credentials Authentication (Login/Password)
+
+- Installed and configured NextAuth.js (Auth.js v5) with Credentials provider.
+- Created `auth.ts`, `auth.config.ts` and `middleware.ts` for route protection.
+- Login page (`/login`) with email + password form.
+- Registration page (`/register`) with name, email, password.
+- Password hashing with `bcryptjs`, validation with `Zod`.
+- Navigation updates: Login/Logout button based on session state.
+
+#### Screenshots
+
+**Login page:**
+
+![Login](screenshots/lab3-task2-login.png)
+
+**Registration page:**
+
+![Register](screenshots/lab3-task2-register.png)
+
+**Successful authentication:**
+
+![Auth Success](screenshots/lab3-task2-auth-success.png)
+
+---
+
 </details>

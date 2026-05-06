@@ -16,7 +16,7 @@ async function main() {
     data: {
       email: 'test@example.com',
       name: 'Test User',
-      password: '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', // "password123"
+      password: '$2b$10$/Wi0ManaiuVQOQfkcj7ZpOP9Fu.nY8eU7oT6yIfS/ZlAzgELMLfUy', // "password123"
       provider: 'credentials',
     },
   })
