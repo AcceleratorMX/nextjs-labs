@@ -185,7 +185,7 @@ npm run start
 
 ---
 
-<details open>
+<details>
 <summary><b>📗 Lab 2 — Environment Variables, Databases, API & Client Fetching</b></summary>
 
 ### Task 1 — Environment Variables
@@ -199,7 +199,6 @@ npm run start
 **UI Display (Settings Page):**
 
 ![UI Display](screenshots/lab2_env_ui.png)
-
 
 ### Task 2 — Production Database (Vercel Postgres / Neon)
 
@@ -261,5 +260,27 @@ npm run start
 **Article Detail (SWR):**
 
 ![Article Detail](screenshots/lab2_swr_detail.png)
+
+</details>
+
+---
+
+<details open>
+<summary><b>📙 Lab 3 — OpenID Connect (Authentication)</b></summary>
+
+### Task 1 — Users Table
+
+- Added `User` model to Prisma schema with `email` as the unique identifier field.
+- Fields: `id`, `email` (unique), `name`, `password` (optional, for OAuth users), `image`, `age`, `provider`, `createdAt`, `updatedAt`.
+- Executed migration `add_users_table` to create the table in the database.
+- Added a test user (`test@example.com`) to the seed script.
+
+#### Screenshots
+
+**User table in database:**
+
+![Migration](screenshots/lab3-task1-migration.png)
+
+---
 
 </details>
